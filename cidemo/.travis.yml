@@ -1,3 +1,5 @@
+version: ~> 1.0
+
 language: python
 
 services:
@@ -6,6 +8,7 @@ services:
 before_install:
   - docker build -t web .
   - docker run --name web -d web
+  - docker ps -a
   - docker exec -it web sh
 
 script:
