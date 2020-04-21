@@ -7,9 +7,6 @@ services:
 
 before_install:
   - docker build -t web .
-  - docker run --name web -d web
-  - docker ps -a
-  - docker exec -it web sh
 
 script:
-  - python3 /app/manage.py test
+  - docker run web python3 manage.py test
